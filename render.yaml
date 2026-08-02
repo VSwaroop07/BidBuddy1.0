@@ -25,16 +25,11 @@ services:
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
       - key: SECRET_KEY
-        generateValue: true
+        generateValue: true             # Render auto-generates a secure key
       - key: DATABASE_URL
         fromDatabase:
           name: bitbuddy-db
           property: connectionString
-      # ── REDIS_URL: Set this manually in the Render dashboard ─────────────────
-      # Get a free Redis URL from https://upstash.com (free: 10k req/day)
-      # Then paste it here as an env var in the Render dashboard.
-      - key: REDIS_URL
-        sync: false
       # ── Set these manually in the Render dashboard ────────────────────────────
       - key: GEMINI_API_KEY
         sync: false
@@ -46,7 +41,6 @@ services:
         sync: false
       - key: EMAIL_HOST_PASSWORD
         sync: false
-      # ── PDF processing is handled by Gemini Files API (no local tools needed) ──
 
 # ── Managed PostgreSQL Database ───────────────────────────────────────────────
 # ✅ Free tier — NOTE: expires after 90 days, then you must recreate it
