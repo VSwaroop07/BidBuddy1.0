@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-# build.sh — Render build script
+# build.sh — Render build script (Gemini-native, no system OCR tools needed)
 set -e
-
-echo "==> Installing system dependencies..."
-apt-get update -qq
-apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-eng
 
 echo "==> Installing Python dependencies..."
 pip install -r requirements.txt
