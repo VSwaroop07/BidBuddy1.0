@@ -58,6 +58,7 @@ services:
     name: bitbuddy-redis
     plan: starter
     maxmemoryPolicy: noeviction
+    ipAllowList: []   # empty = internal Render services only (no public access)
 
   # ── Celery Worker ────────────────────────────────────────────────────────────
   - type: worker
