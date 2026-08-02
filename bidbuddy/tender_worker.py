@@ -107,7 +107,7 @@ def _analyse_pdf(uploaded_file):
                 logger.info("Retrying in %d seconds...", sleep)
                 time.sleep(sleep)
 
-    raise last_error
+    raise last_error if last_error is not None else RuntimeError("All retries exhausted with no captured exception.")
 
 
 # ==========================================================
