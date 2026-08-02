@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+<link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <title>SEOM Projects & Engineering Services LLP</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Flowbite CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+    {% load static %}
+    <nav class="bg-white fixed w-full z-20 top-0 border-b border-gray-200">
+        <div class="w-full flex flex-wrap items-center justify-between px-8 p-4">
+            <a href="#" class="flex items-center space-x-3">
+    <img src="{% static 'images/logo.png' %}" class="h-20" alt="Logo">
+
+    <div class="flex flex-col">
+        <span class="text-2xl font-semibold whitespace-nowrap">
+            SEOM Projects & Engineering Services LLP
+        </span>
+
+        <p class="text-xs tracking-wide text-gray-1200">
+           Projects Engineering Tenders Assets Innovation
+        </p>
+    </div>
+</a>
+
+            <div class="flex items-center gap-3 md:order-2">
+
+    
+    <div class="flex items-center gap-3 md:order-2">
+
+    {% if user.is_authenticated %}
+
+       <a href="{% url 'profile' %}"
+   class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold uppercase">
+    {{ user.username|default:"U"|slice:":1" }}
+</a>
+
+        <a href="{% url 'logout' %}"
+           class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-4 py-2">
+            Logout
+        </a>
+
+    {% else %}
+
+        <a href="{% url 'login' %}"
+           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">
+            Login
+        </a>
+
+        <a href="{% url 'register' %}"
+           class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">
+            Register
+        </a>
+
+    {% endif %}
+
+    <button data-collapse-toggle="navbar-sticky" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden"
+        aria-controls="navbar-sticky" aria-expanded="false">
+
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+
+    </button>
+
+</div>
+</div>
+
+               
+
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto"
+                id="navbar-sticky">
+
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#solutions"
+                            class="block py-2 px-3 text-gray-900 hover:text-blue-700">
+                            Solutions
+                        </a>
+                    </li>
+
+                     <li>
+                        <a href="#services"
+                            class="block py-2 px-3 text-gray-900 hover:text-blue-700">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#founders"
+                            class="block py-2 px-3 text-gray-900 hover:text-blue-700">
+                            Founders
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="block py-2 px-3 text-gray-900 hover:text-blue-700">
+                            Contact
+                        </a>
+                    </li>
+                    {% if user.is_authenticated %}
+
+<li>
+    <a href="{% url 'bidbuddy_trial' %}"
+        class="block py-2 px-3 text-gray-900 hover:text-blue-700">
+        SEOM Trial Version
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'pro_version' %}"
+        class="block py-2 px-3 text-gray-900 hover:text-blue-700">
+        SEOM Pro Version
+    </a>
+</li>
+
+{% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% load static %}
+<section
+    class="relative pt-26 text-center bg-cover bg-center h-screen flex flex-col justify-center items-center">
+
+    <video autoplay muted loop playsinline
+           class="absolute inset-0 w-full h-full object-cover -z-10">
+        <source src="{% static 'videos/bg.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="absolute inset-0"></div>
+
+    <div class="relative z-10 max-w-6xl px-8 md:px-16 text-white">
+    <h1 class="text-3xl md:text-6xl font-bold leading-tight">
+        SEOM
+    </h1>
+
+    <p class="text-lg md:text-3xl my-3">
+        (Sustainability Excellence Optimisation Manufacturing)
+    </p>
+
+    <h2 class="text-2xl md:text-5xl font-bold leading-tight">
+        Projects & Engineering Services LLP
+    </h2>
+</div>
+
+</section>
+
+<section id="solutions" class="py-20 px-5 bg-slate-50">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-14">
+
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mt-3 mb-4">
+            Strategic Solutions
+      </h2>
+
+       <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-14">
+            <h2 class="text-4xl md:text-2xl font-bold text-gray-900">
+                AI-Powered Project & Commercial Advisory
+            </h2>
+
+            <p class="mt-6 text-lg text-gray-600 max-w-5xl mx-auto leading-relaxed">
+                SEOM Projects &amp; Engineering Services LLP integrates Artificial Intelligence
+                into Project &amp; Commercial Advisory services to support large-scale
+                Infrastructure, Construction, Oil &amp; Gas, Power, and Renewable Energy
+                projects throughout the project lifecycle.
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid lg:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="bg-slate-50 rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition duration-300">
+
+                <div class="w-16 h-16 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-3xl mb-6">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-5">
+                    AI-Driven Tender Document Intelligence &amp; Contract Administration
+                </h3>
+
+                <ul class="space-y-4 text-gray-600 leading-7 list-disc pl-5">
+                    <li>
+                        <strong>Automated Clause Analysis:</strong>
+                        AI scans complex EPC (Engineering, Procurement &amp; Construction)
+                        contracts to identify hidden risks, compliance obligations,
+                        and critical project milestones.
+                    </li>
+
+                    <li>
+                        <strong>Risk Mitigation:</strong>
+                        Detects unfavorable clauses and deviations from industry standards
+                        before contract execution, helping protect project margins in
+                        Renewable Energy and Oil &amp; Gas projects.
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-slate-50 rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition duration-300">
+
+                <div class="w-16 h-16 rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-3xl mb-6">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-5">
+                    Claims Management &amp; Delay Analysis
+                </h3>
+
+                <ul class="space-y-4 text-gray-600 leading-7 list-disc pl-5">
+                    <li>
+                        <strong>Predictive Impact Assessment:</strong>
+                        AI evaluates project delays, schedule disruptions,
+                        and quantifies their impact on capital productivity.
+                    </li>
+
+                    <li>
+                        <strong>Evidence Compilation:</strong>
+                        Organizes project documents including progress reports,
+                        supply-chain records, and site logs to support robust claims
+                        or defend against liquidated damages.
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-slate-50 rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition duration-300">
+
+                <div class="w-16 h-16 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600 text-3xl mb-6">
+                    <i class="fas fa-gavel"></i>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-5">
+                    Dispute Resolution
+                </h3>
+
+                <ul class="space-y-4 text-gray-600 leading-7 list-disc pl-5">
+                    <li>
+                        <strong>Precedent &amp; Case Matching:</strong>
+                        AI cross-references contractual disputes with historical cases,
+                        industry precedents, and regulatory standards.
+                    </li>
+
+                    <li>
+                        <strong>Objective Advisory:</strong>
+                        Provides boards and executive leadership with data-driven
+                        strategies to resolve disputes efficiently while minimizing
+                        costly litigation.
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="mt-16 bg-blue-50 border-l-4 border-blue-600 rounded-xl p-8">
+
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+                Technology-Driven Advisory
+            </h3>
+
+            <p class="text-gray-700 leading-8 text-lg">
+                By combining AI-powered digital innovation with the founders' extensive
+                technical expertise spanning decades of experience with global organizations
+                such as <strong>Saipem</strong>, <strong>Wood</strong>,
+                <strong>KBR</strong>, and <strong>DRDO</strong>, SEOM replaces
+                conventional consulting assumptions with precise, technology-driven
+                oversight that safeguards high-value Energy and Infrastructure
+                investments.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-blue-100 text-blue-600">
+        <i class="fas fa-desktop"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        Client Portal Setup & Management
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Setup, configure, and manage client tender portals to streamline bid submissions and project workflows.
+    </p>
+</div>
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+        <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-green-100 text-green-600">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">
+                  Curated Tender Identification
+        </h3>
+        <p class="text-gray-600 leading-relaxed">
+            Identify and track relevant tender opportunities tailored to your industry and business goals.
+
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-purple-100 text-purple-600">
+        <i class="fas fa-file-alt"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        Tender Document Review & Extracts
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Review tender documents and extract key requirements, risks, and compliance obligations.
+    </p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-yellow-100 text-yellow-600">
+        <i class="fas fa-coins"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        Budget Estimation & Competitive Pricing Strategy
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Develop accurate cost estimates and competitive pricing strategies for successful bids.
+    </p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-red-100 text-red-600">
+        <i class="fas fa-chart-bar"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        Bill of Quantity Preparation & Unit Rate Analysis
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Prepare detailed BOQs and perform unit rate analysis to support accurate tender pricing.
+    </p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-indigo-100 text-indigo-600">
+        <i class="fas fa-pen-nib"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        Technical & Commercial Bid Drafting
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Create comprehensive technical and commercial bid submissions aligned with tender requirements.
+    </p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-teal-100 text-teal-600">
+        <i class="fas fa-handshake"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        Submission & Post-Bid Support
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Assist with bid submission processes and provide support throughout post-bid activities.
+    </p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+    <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-blue-100 text-3xl mb-5 bg-pink-100 text-pink-600">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">
+        AI Driven Contract, Claims & Dispute Management
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+        Providing AI powered customised solutions for contract administration, claims management, delay analysis, and dispute resolution to the clients in the construction industry.
+    </p>
+</div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Who We Are
+            </h2>
+
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                At SEOM, we partner with promoters, boards, CEOs, investors and business leaders to transform industrial ambitions into high-performing manufacturing enterprises. We help organizations plan better, invest wisely, build faster, operate reliably and grow sustainably through integrated strategic advisory, project leadership and operational excellence.
+            </p>
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4">
+                Unlike conventional consulting firms that specialize in isolated functions, we provide an end-to-end industrial transformation approach from investment evaluation and technical due diligence through project execution, operational readiness, maintenance excellence and long-term asset performance.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div class="bg-slate-50 rounded-2xl border border-gray-200 p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Our services include</h3>
+                <ul class="text-gray-600 list-disc space-y-2">
+                    <li>Strategic advisory, governance and investment evaluation</li>
+                    <li>Technical due diligence, M&A and asset performance reviews</li>
+                    <li>Capital project planning, execution and project recovery</li>
+                    <li>Manufacturing readiness, operational excellence and maintenance excellence</li>
+                    <li>Integrated leadership, stakeholder alignment and delivery governance</li>
+                </ul>
+            </div>
+            <div class="bg-slate-50 rounded-2xl border border-gray-200 p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Industries we serve</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    • Power <br>
+                    • Renewable Solar <br>
+                    • Wind farms <br>
+                    • Oil and Gas Infrastructure<br>
+                    • Construction of Roads<br>
+                    • Roads & Highways<br>
+                    • Factories <br>
+                    • Chemical <br>
+                    • Specialty Chemical<br>
+                    • Battery Materials<br>
+                    • Giga Factories<br>
+                    • Pharmaceuticals<br>
+                    • APIs and Advanced Manufacturing
+                </p>
+            </div>
+        </div>
+         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Our Services
+            </h2>
+
+        <div id="accordion-collapse" data-accordion="collapse">
+
+            <!-- Service 1 -->
+            <h2 id="accordion-heading-1">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-gray-200 rounded-t-xl hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-1"
+                    aria-expanded="false"
+                    aria-controls="accordion-body-1">
+
+                    <span >Capital Projects & Industrial Infrastructure</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-1"
+                class="hidden"
+                aria-labelledby="accordion-heading-1">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                        Transforming business strategy into successful manufacturing facilities.
+                        <h3>Services:</h3>
+                        • Greenfield Projects <br>
+                        • Brownfield Expansion <br>
+                        • Project Concept Development <br>
+                        • Site Master Planning<br>
+                        • Feasibility Studies <br>
+                        • Capital Investment Planning <br>
+                        • CAPEX Estimation <br>
+                        • Front-End Engineering Support <br>
+                        • Owner’s Engineering <br>
+                        • EPC/EPCM Advisory <br>
+                        • Construction Management <br>
+                        • Mechanical Completion <br>
+                        • Commissioning<br>
+                        • Operational Readiness<br>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Service 2 -->
+            <h2 id="accordion-heading-2">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-t-0 border-gray-200 hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-2">
+
+                    <span>Project Governance & Executive PMO</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-2"
+                class="hidden">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                        Building governance systems that ensure predictable project outcomes.
+                        <h3>Services:</h3>
+                        • Executive Project Governance <br>
+                        • PMO Design <br>
+                        • Stage-Gate Systems <br>
+                        • Project Health Assessment <br>
+                        • Executive Dashboards <br>
+                        • Risk Management <br>
+                        • Project Recovery <br>
+                        • Schedule Recovery <br>
+                        • Cost Monitoring<br>
+                        • Stakeholder Management <br>
+                        • Decision Governance <br>
+                        • Performance Reviews
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Service 3 -->
+            <h2 id="accordion-heading-3">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-t-0 border-gray-200 hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-3">
+
+                    <span>Manufacturing Excellence</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-3"
+                class="hidden">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                        Helping organizations build world-class manufacturing capabilities.
+                        <h3>Services:</h3>
+                        Manufacturing Readiness <br>
+                        • Production Excellence <br>
+                        • Process Improvement <br>
+                        • Productivity Enhancement <br>
+                        • Operational Excellence <br>
+                        • Lean Manufacturing <br>
+                        • Continuous Improvement <br>
+                        • Value Engineering <br>
+                        • Cost Optimisation <br>
+                        • Reliability Improvement
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Service 4 -->
+            <h2 id="accordion-heading-4">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-t-0 border-gray-200 rounded-b-xl hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-4">
+
+                    <span>Maintenance & Asset Management Excellence</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-4"
+                class="hidden">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                        Designing high-performance maintenance organizations that maximize reliability and asset life.
+                        <h3>Services:</h3>
+                        • Maintenance Transformation  <br>
+                        • Reliability Centered Maintenance (RCM) <br>
+                        • Total Productive Maintenance (TPM) <br>
+                        • Preventive Maintenance <br>
+                        • Predictive Maintenance <br>
+                        • Shutdown Management <br>
+                        • Asset Criticality Assessment<br>
+                        • Asset Performance Management <br>
+                        • CMMS Implementation <br>
+                        • Spare Parts Optimisation <br>
+                        • Maintenance KPIs <br>
+                        • Maintenance Audits <br>
+                        • ISO 55001 Asset Management <br>
+                        • Maintenance Leadership Development
+
+                    </p>
+                </div>
+
+            </div>
+                       <!-- Service 5 -->
+            <h2 id="accordion-heading-5">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-t-0 border-gray-200 rounded-b-xl hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-5">
+
+                    <span>Technical Due Diligence & Mergers and Acquisitions Advisory</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-5"
+                class="hidden">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                        Supporting strategic investment decisions through comprehensive techno-commercial evaluation.
+                        <h3>Services:</h3>
+                       • Technical Due Diligence <br>
+                       • Manufacturing Due Diligence <br>
+                       • Plant Condition Assessment <br>
+                       • Asset Verification <br>
+                       • Capacity Validation <br>
+                       • Technology Assessment <br>
+                       • Infrastructure Assessment <br>
+                       • Regulatory Compliance Review <br>
+                       • Safety Assessment<br>
+                       • Maintenance Maturity Assessment <br>
+                       • Remaining Asset Life Evaluation <br>
+                       • CAPEX Requirement Assessment <br>
+                       • Business Case Validation <br>
+                       • Techno-Commercial Evaluation <br>
+                       • Investment Risk Assessment <br>
+                       • Acquisition Support <br>
+                       • Integration Planning <br>
+                       • Executive Recommendation Reports<br>
+                       • Board Presentation Support <br>
+                       • Go / No-Go Decision Framework<br>
+                    </p>
+                </div>
+
+            </div>
+                        <!-- Service 6 -->
+
+            <h2 id="accordion-heading-6">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-t-0 border-gray-200 rounded-b-xl hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-6">
+
+                    <span>Executive Advisory & Leadership Development</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-6"
+                class="hidden">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                        Helping leadership teams create sustainable execution capability.
+                        <h3>Services:</h3>
+                        • CEO Advisory <br>
+                        • Project Leadership Coaching <br>
+                        • Maintenance Leadership Coaching <br>
+                        • Executive Workshops <br>
+                        • Governance Workshops <br>
+                        • Construction Excellence Training <br>
+                        • Project Management Programs <br>
+                        • Reliability & Asset Management Programs<br>
+                        • Industrial Transformation Roadmaps<br>
+                    </p>
+                </div>
+
+            </div>
+                        <!-- Service 7 -->
+            <h2 id="accordion-heading-7">
+                <button type="button"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-black-700 border border-t-0 border-gray-200 rounded-b-xl hover:bg-gray-100"
+                    data-accordion-target="#accordion-body-7">
+                    <span>Industries We Serve</span>
+
+                    <svg data-accordion-icon
+                        class="w-4 h-4 shrink-0 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"/>
+                    </svg>
+
+                </button>
+            </h2>
+
+            <div id="accordion-body-7"
+                class="hidden">
+
+                <div class="p-5 border border-t-0 border-gray-200">
+                    <p class="text-gray-600">
+                       • Battery Manufacturing <br>
+                       • Battery Chemicals <br>
+                       • Specialty Chemicals <br>
+                       • Fine Chemicals <br>
+                       • Petrochemicals <br>
+                       • Agrochemicals<br>
+                       • Pharmaceutical Manufacturing <br>
+                       • API Manufacturing <br>
+                       • Advanced Manufacturing <br>
+                       • Industrial Infrastructure <br>
+                       • Process Industries<br>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="differentiators" class="py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        What Differentiates Us
+      </h2>
+      <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Unlike traditional consulting firms, we integrate technical excellence with executive business leadership.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white rounded-3xl border border-gray-200 p-8 shadow-sm">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">We provide clients with</h3>
+        <ul class="text-gray-600 list-disc list-inside space-y-3">
+          <li>Strategic Business Understanding</li>
+          <li>Engineering Excellence</li>
+          <li>Project Leadership</li>
+          <li>Construction Expertise</li>
+          <li>Manufacturing Excellence</li>
+          <li>Maintenance Transformation</li>
+          <li>Asset Management</li>
+          <li>Technical Due Diligence</li>
+          <li>Investment Advisory</li>
+          <li>Executive Governance</li>
+          <li>Risk Management</li>
+          <li>Leadership Coaching</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-gray-200 p-8 shadow-sm">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Our Philosophy</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Industrial projects are among the largest investments an organization will ever make. They deserve decisions based on engineering intelligence, commercial understanding, structured governance and disciplined execution — not assumptions.
+        </p>
+        <ul class="text-gray-600 list-disc list-inside space-y-3">
+          <li>Safe</li>
+          <li>Reliable</li>
+          <li>Sustainable</li>
+          <li>Cost Effective</li>
+          <li>Future Ready</li>
+          <li>Operationally Excellent</li>
+          <li>Commercially Successful</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 text-white rounded-3xl p-10 text-center">
+      <p class="text-xl md:text-2xl font-semibold mb-4">From Investment Decisions to World-Class Manufacturing Excellence</p>
+      <p class="text-lg leading-relaxed">One Partner. One Vision. One Integrated Solution.</p>
+    </div>
+
+  </div>
+</section>
+
+{% load static %}
+
+<section id="founders" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Title -->
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">
+      Our Leadership
+    </h2>
+
+    <!-- Founder 1 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+
+      <!-- Image -->
+      <div class="flex justify-center">
+        <img src="{% static 'images/founder2.jpeg' %}"
+             alt="Nagajyothi Ravuri"
+             class="w-72 h-85 object-cover rounded-2xl shadow-lg">
+      </div>
+
+      <!-- Text -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-3">
+          Naga Ravuri
+        </h3>
+
+        <p class="text-gray-600 leading-relaxed">
+          Mr. Naga has over 30 years of experience in delivering  EPC and Project Development of Power, Renewable Solar and Wind farms and Oil and Gas Infrastructure construction projects across globe. He has worked with global companies like Saipem, Wood, and KBR, delivering multi-million USD EPC LSTK projects in energy sector on time and within budget. His expertise includes project execution, contract management, risk management, procurement, and strategic sourcing. He holds a B.Tech in Mechanical Engineering from Jawaharlal Nehru Technological University, Hyderabad (1992). <br> Skilled in SAP/ERP, Projects systems, e-business/IBM Maximo & implemented Lean Six Sigma methodologies in Projects/Contracts in KOC. <br>
+          Held senior roles in IPCL/Reliance Group, L&T, NCC, Lanco Solar EPC, Eni Saipem, GE Triveni, KOC, ADNOC PMC - KBR International.
+        </p>
+      </div>
+    </div>
+
+    <!-- Founder 2 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+      <!-- Image -->
+      <div class="flex justify-center">
+        <img src="{% static 'images/founder2.jpg' %}"
+             alt="BSR Prasad"
+             class="w-72 h-85 object-cover rounded-2xl shadow-lg">
+      </div>
+
+      <!-- Text -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-3">
+          BSR Prasad
+        </h3>
+
+        <p class="text-gray-600 leading-relaxed">
+          Mr. BSR Prasad is a seasoned technologist and business leader with over two decades of experience driving innovation at the intersection of engineering and emerging technologies. <br> An M.Tech graduate from IIT Kharagpur and a B.Tech (ECE) graduate from JNTU Kakinada, Mr. Prasad began his career at DRDO, where he contributed to the development of mission-critical systems for national defense. He subsequently held senior leadership positions at leading global technology organizations, including HCL Technologies, HPE, iGate, and Infosys, successfully leading large-scale programs in Embedded Systems and Real-Time Technologies. <br>
+          As the Founder, Mr. Prasad leverages his extensive expertise in embedded systems, real-time technologies, and AI/ML adoption to create innovative solutions that address complex real-world challenges. His leadership approach combines deep-tech research and development excellence with enterprise-scale execution, enabling the successful delivery of transformative technology solutions. <br> Under his guidance, the organization is focused on delivering intelligent and future-ready technology solutions for the Infrastructure and Building Construction industries, driving digital transformation, operational efficiency, and sustainable growth.
+        </p>
+      </div>
+
+    </div>
+    <br>
+    <br>
+        <!-- Founder 3 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+
+      <!-- Image -->
+      <div class="flex justify-center">
+        <img src="{% static 'images/founder3.png' %}"
+             alt="Nagajyothi Ravuri"
+             class="w-72 h-85 object-cover rounded-2xl shadow-lg">
+      </div>
+
+      <!-- Text -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-3">
+          Samir B Dave
+        </h3>
+
+        <p class="text-gray-600 leading-relaxed">
+Senior leader in large-scale project delivery with 27+ years in chemical, API, battery chemicals & gigafactory sectors. Expert in executing $50 -500M+ Capex Projects, cell manufacturing facilities, Battery chemicals, Speciality Chemicals, API, through PMC/EPC/EPCM models.
+<br>
+<b>Track record:</b> <br>
+Multiple greenfield & Brownfield projects  25M+ safe man-hours, ahead of schedule by 3+ months, significant Capex savings through VE& robust Project Governance, Established Maintenance Excellence through CMMS, OEE, RCM
+<br>
+<b>Strengths:</b> <br>Stakeholder collaboration with global consultants, contractors & engineers | Value engineering & cost control | Regulatory audit readiness | Project Governance | Project Expediting | Asset Optimization/ World Class Maintenance | Maintenance Transformation | Technical Due Diligence | Mergers & Acquisitions Advisory | Executive Coaching | Project Leadership Coaching | Maintenance Leadership Coaching | Governance Workshops | Risk Management <br>
+<b>Education:</b><br>
+IIM Kozhikode – MDP Business Admin | NMIMS – PGDBM | IIM Ahmedabad – Project & Risk Management | IIT Delhi – EV Technology | MSU Baroda – B.E. Mechanical
+
+Drives innovative, secure solutions for complex project & asset management challenges, Leadership and Team Coaching for Transformation 
+
+        </p>
+      </div>
+    </div>
+       <!-- Founder 4 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+
+      <!-- Image -->
+      <div class="flex justify-center">
+        <img src="{% static 'images/founder4.jpeg' %}"
+             alt="Nagajyothi Ravuri"
+             class="w-72 h-85 object-cover rounded-2xl shadow-lg">
+      </div>
+
+      <!-- Text -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-3">
+          NS Prasad
+        </h3>
+
+        <p class="text-gray-600 leading-relaxed">
+Senior Management professional with about 40 years of Renewable Energy sector (Wind & Solar) experience. A technocrat with experience in R&D, Manufacturing, EPC, strategic management and consulting led international and national assignments. Specializes in turning Renewable Energy Ambition into Bankable Assets. Helps investors, developers, and governments navigate complex solar and wind projects. Assesses financing assets and de-risks investments ,and accelerates execution. A Nobel Peace Prize awardee for IPCC contributions.<br>
+
+<b>Track  Record:</b> <br>
+
+Implemented several greenfield and projects in Wind, Solar PV, Solar Thermal domains. One of the first few principal members of establishing NIWE (National Institute of Wind Energy). Introduced India’s first wind turbine certification system (TAPS-2000). Led establishing Solar PV business vertical, PV manufacturing plant, and Coceptualised and Strategised implementing Poly-silicon manufacturing. Incubated and groomed a few start-ups. Led developing and manufacturing third generation thin film PV technology for an UK company supported by Innovate UK. Implemented de-risks investments project in Solar sector for a German organisation supported by BMZ. Engineered and overseen implementation of MW scale PV projects and 200 MW CSP plants.
+
+ <br>
+
+<b>Strengths:</b><br>
+
+Lead innovation from front, offer creative solutions, workaholic. Collaborations with technology firms,Govt.and other Organisations. Lead teams through  contribution. Certifications,testing, quality assurance, and standardisation. Technical due  diligence and capacity building.
+
+ 
+
+Organisations Served
+
+ABB,Baroda
+
+TERI,New Delhi and Bangalore
+
+NIWE,Chennai
+
+RIL,Navi Mumbai
+
+LANCO, Gurgaon <br>
+
+<b>Education:</b><br>
+
+B.Tech,AU College of Engg. M.Tech,IIT Kanpur
+
+CII,BvQI certified Lead Auditor of Quality Systems.
+
+Trained in accreditation and quality systems by National accreditation board of Quality Council of India.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= Challenges ================= -->
+<section class="bg-white">
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10">
+
+        <div class="max-w-4xl mx-auto text-center">
+
+            <h2 class="mt-4 text-5xl font-bold text-gray-900 leading-tight">
+                The Challenges We Help Solve
+            </h2>
+
+        </div>
+
+
+        <div class="grid lg:grid-cols-12 gap-20 mt-20">
+
+            <!-- LEFT -->
+            <div class="lg:col-span-5">
+
+                <h3 class="text-3xl font-semibold text-gray-900 leading-snug">
+                    Industrial organizations today face increasing complexity.
+                </h3>
+
+                <p class="mt-8 text-lg leading-9 text-gray-600">
+                    Capital investments continue to grow while expectations for certainty,
+                    speed, safety, sustainability, and financial performance become more demanding.
+                </p>
+
+                <div class="mt-16 pl-8 border-l-4 border-blue-600">
+
+                    <p class="italic text-xl text-gray-700 leading-9">
+                        Managing these priorities independently creates fragmentation.
+                    </p>
+
+                    <p class="mt-8 text-2xl font-semibold text-gray-900 leading-10">
+                        SEOM provides an integrated perspective connecting strategic intent with disciplined execution and measurable outcomes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+            <div class="lg:col-span-7">
+
+                <h4 class="text-xl font-semibold text-gray-900 mb-10">
+                    Leadership teams must simultaneously address
+                </h4>
+
+                <div class="grid md:grid-cols-2 gap-y-8 gap-x-16">
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">01</span>
+                        <span>Capital deployment</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">02</span>
+                        <span>Investment governance</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">03</span>
+                        <span>Technology selection</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">04</span>
+                        <span>Engineering risk</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">05</span>
+                        <span>Supply chain resilience</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">06</span>
+                        <span>Regulatory compliance</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">07</span>
+                        <span>Construction execution</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">08</span>
+                        <span>Manufacturing competitiveness</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">09</span>
+                        <span>Asset reliability</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">10</span>
+                        <span>Operational efficiency</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">11</span>
+                        <span>Energy transition</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">12</span>
+                        <span>Digital transformation</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">13</span>
+                        <span>Workforce capability</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-blue-600 font-bold">14</span>
+                        <span>Shareholder expectations</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+          <!-- Our Value Proposition -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center max-w-4xl mx-auto mb-16">
+
+            <p class="text-sm uppercase tracking-[3px] text-gray-500 font-semibold">
+                OUR VALUE PROPOSITION
+            </p>
+
+            <h2 class="text-4xl font-bold text-gray-900 mt-4">
+                We Help Industrial Organizations
+            </h2>
+
+            <p class="mt-5 text-lg text-gray-600">
+                Deliver measurable business outcomes through strategic leadership,
+                engineering excellence, and disciplined execution.
+            </p>
+
+        </div>
+
+        <!-- List -->
+        <div class="grid md:grid-cols-2 gap-x-20 gap-y-6 max-w-5xl mx-auto">
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Invest with greater confidence</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Deliver complex projects with certainty</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Reduce execution risk</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Accelerate operational readiness</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Improve manufacturing competitiveness</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Increase asset reliability</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Strengthen governance</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Enhance capital productivity</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Build leadership capability</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Enable sustainable growth</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Improve resilience</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <i class="fas fa-arrow-right mt-1 text-gray-700"></i>
+                <span class="text-lg text-gray-700">Maximize enterprise value</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+       <!-- Leadership Philosophy -->
+<section class="bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Introduction -->
+        <div class="text-center max-w-5xl mx-auto mb-20">
+
+            <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold uppercase tracking-wider">
+                Leadership Philosophy
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-6 mb-8">
+                Leadership Begins with Responsibility
+            </h2>
+
+            <div class="space-y-6 text-lg text-gray-600 leading-8">
+
+                <p>
+                    At SEOM, we believe leadership is not defined by authority or titles it is defined by the responsibility to make informed decisions, inspire confidence, and create lasting value.
+                </p>
+
+                <p>
+                    Every industrial investment, strategic initiative, and transformation program represents more than a project. It represents an organization's aspirations, the trust of its stakeholders, and a commitment to future generations. Leadership therefore demands foresight, courage, discipline, and integrity.
+                </p>
+
+                <p>
+                    We believe the most successful enterprises are built by leaders who combine strategic vision with operational excellence, engineering intelligence with commercial acumen, and innovation with disciplined execution.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="border-gray-300 mb-16">
+
+            <div class="text-center">
+
+                <h3 class="text-4xl font-bold text-gray-900">
+                    Our Leadership Philosophy
+                </h3>
+
+                <p class="mt-6 text-lg text-gray-600 max-w-4xl mx-auto leading-8">
+                    Our philosophy is founded on seven enduring principles that guide every engagement, every decision, and every partnership we build.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Principles -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    01
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Purpose Before Projects
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    We begin by understanding why an investment or transformation matters before determining how it should be delivered. Every decision should advance the client's long-term business objectives.
+                </p>
+
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    02
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Integrity in Every Decision
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    We provide objective, independent, and evidence-based advice. Trust is earned through transparency, professional ethics, and an unwavering commitment to doing what is right for the client.
+                </p>
+
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    03
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Excellence Through Execution
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    Strategy creates direction, but disciplined execution creates results. We believe excellence is achieved through robust governance, structured processes, accountability, and continuous improvement.
+                </p>
+
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    04
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Engineering Intelligence with Business Perspective
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    Technical excellence alone is not enough. Every engineering decision should strengthen commercial performance, operational resilience, sustainability, and long-term enterprise value.
+                </p>
+
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    05
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Partnership Over Consultancy
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    We work alongside our clients as trusted advisors, sharing ownership of challenges and opportunities. Our goal is not simply to complete assignments but to build capability, confidence, and enduring relationships.
+                </p>
+
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    06
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Innovation with Practical Value
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    We embrace digital technologies, artificial intelligence, advanced manufacturing, and sustainable practices where they deliver measurable business impact. Innovation must solve real problems and create tangible value.
+                </p>
+
+            </div>
+
+            <!-- Full Width Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border-t-4 border-blue-600 md:col-span-2 lg:col-span-3">
+
+                <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-6">
+                    07
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Building Enterprises That Endure
+                </h3>
+
+                <p class="text-gray-600 leading-8">
+                    Our greatest measure of success is not the projects we deliver, but the stronger, safer, more competitive, and future-ready enterprises our clients build as a result of our partnership.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+            
+
+       <!--our commitment--> 
+       
+       <section class="py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="bg-white border-l-8 border-blue-700 rounded-2xl shadow-lg p-10 md:p-14">
+
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                    <i class="fas fa-handshake text-blue-700 text-2xl"></i>
+                </div>
+
+                <h2 class="text-4xl font-bold text-gray-900">
+                    Our Commitment
+                </h2>
+            </div>
+
+            <div class="space-y-6 text-lg leading-9 text-gray-700">
+
+                <p class="text-2xl font-semibold text-blue-700">
+                    We aspire to be more than consultants.
+                </p>
+
+                <p>
+                    We strive to be the strategic partner organizations trust when making their most important industrial decisions helping leaders invest wisely, execute confidently, operate efficiently, and create sustainable value for shareholders, employees, customers, and society.
+                </p>
+
+                <p>
+                    Every engagement reflects our commitment to professionalism, collaboration, continuous learning, and measurable outcomes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+        <!-- Founder's Message -->
+        
+         <section class="py-24 bg-gray-50">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="relative">
+
+            <!-- Message Icon -->
+            <div
+                class="absolute -top-8 left-12 w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center shadow-xl z-20">
+
+                <i class="fas fa-comment-dots text-white text-4xl"></i>
+
+            </div>
+
+            <!-- Message Bubble -->
+            <div
+                class="relative bg-white rounded-[40px] border border-gray-200 shadow-2xl p-12 md:p-16">
+
+                <!-- Bubble Tail -->
+                <div
+                    class="absolute -left-5 top-16 w-10 h-10 bg-white border-l border-b border-gray-200 rotate-45">
+                </div>
+
+                <h2 class="text-4xl font-bold text-gray-900 mb-8">
+                    A Message from the Founders
+                </h2>
+
+                <div class="space-y-6 text-lg leading-9 text-gray-700">
+
+                    <p>
+                        Throughout our professional journeys, we have learned that the greatest differentiator in industry is not technology alone it is leadership. Organizations succeed when leaders have the clarity to make informed decisions, the discipline to execute with excellence, and the humility to continuously improve.
+                    </p>
+
+                    <p>
+                        SEOM was founded on this belief: that every industrial enterprise deserves a strategic partner who brings independent thinking, engineering depth, commercial understanding, and an unwavering commitment to creating long-term value.
+                    </p>
+
+                    <p>
+                        Our purpose is simple to help organizations build enterprises that are safer, smarter, more resilient, and capable of creating enduring value for generations to come.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>  
+
+
+           
+    
+
+                
+</section>
+
+    
+
+<section id="contact" class="py-20 bg-gray-50">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900">
+                Contact Us
+            </h2>
+
+            <p class="text-gray-600 mt-3">
+                We'd love to hear from you.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <!-- Left Side -->
+           {% load static %}
+
+<div class="text-center">
+
+    <img
+        src="{% static 'images/logo.png' %}"
+        alt="Contact Us"
+        class="w-80 h-80 mx-auto mb-6"
+    >
+
+    <h3 class="text-2xl font-semibold mb-6">
+        Get In Touch
+    </h3>
+
+    <div class="space-y-4">
+        <div>
+            <p class="text-gray-600">
+                sales@compass4tender2contract.com
+            </p>
+        </div>
+    </div>
+
+</div>
+            <!-- Right Side -->
+           {% if messages %}
+    {% for message in messages %}
+        <div class="bg-green-100 text-green-700 p-3 rounded mb-4">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+ 
+             <form method="POST">
+
+    {% csrf_token %}
+
+    <div class="mb-4">
+        <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            class="w-full border rounded-lg p-3"
+        >
+    </div>
+
+    <div class="mb-4">
+        <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            class="w-full border rounded-lg p-3"
+        >
+    </div>
+
+    <div class="mb-4">
+        <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+            class="w-full border rounded-lg p-3"
+        ></textarea>
+    </div>
+
+    <button
+        type="submit"
+        class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
+    >
+        Send Message
+    </button>
+
+</form>
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+</body>
+</html>
