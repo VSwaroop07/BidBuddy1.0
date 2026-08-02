@@ -53,6 +53,12 @@ services:
       - key: TESSERACT_PATH
         value: /usr/bin/tesseract
 
+  # ── Redis ────────────────────────────────────────────────────────────────────
+  - type: redis
+    name: bitbuddy-redis
+    plan: starter
+    maxmemoryPolicy: noeviction
+
   # ── Celery Worker ────────────────────────────────────────────────────────────
   - type: worker
     name: bitbuddy-celery
@@ -92,9 +98,3 @@ databases:
     databaseName: bitbuddy
     user: bitbuddy
     plan: starter
-
-# ── Managed Redis ─────────────────────────────────────────────────────────────
-  - type: redis
-    name: bitbuddy-redis
-    plan: starter
-    maxmemoryPolicy: noeviction
