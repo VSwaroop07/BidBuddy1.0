@@ -191,6 +191,8 @@ import os
 GEMINI_API_KEY = config("GEMINI_API_KEY", default=os.getenv("GEMINI_API_KEY", ""))
 
 # ── Celery / Redis ────────────────────────────────────────────────────────────
+import ssl
+
 REDIS_URL = config("REDIS_URL", default="redis://localhost:6379/0")
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
@@ -198,6 +200,12 @@ CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = TIME_ZONE
+
+# Upstash uses rediss:// (SSL) — required SSL options
+if REDIS_URL.startswith("rediss://"):
+    _ssl_opts = {"ssl_cert_reqs": ssl.CERT_NONE}
+    CELERY_BROKER_USE_SSL = _ssl_opts
+    CELERY_REDIS_BACKEND_USE_SSL = _ssl_opts
 
 # ── Paths for PDF/OCR tools (overridden by env vars on Render) ────────────────
 POPPLER_PATH = config("POPPLER_PATH", default="/usr/bin")
